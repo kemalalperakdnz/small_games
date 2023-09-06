@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/TicTacToe_thumb1623914082693_large.jpeg" />
+    <title>XOX Oyunu</title>
+    <style>
+    body{
+	background-color:black;
+	animation:image 10s infinite alternate;
+	-webkit-animation:image 10s infinite alternate;
+	-moz-animation:image 10s infinite alternate;
+}
+@keyframes image{
+	0%{
+		background-color:red;
+	}
+
+	25%{
+		background-color:blue;
+	}
+
+	50%{
+		background-color:yellow;
+	}
+
+	75%{
+		background-color:green;
+	}
+
+	100%{
+		background-color:pink;
+	}
+}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    ::selection {
+        background: none;
+        color: none;
+    }
+    
+    #player {
+        text-align: center;
+        display: block;
+        position: relative;
+        top: 50px;
+        font-weight: bold;
+    }
+    
+    #header {
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 40px;
+    }
+    
+    #container {
+        margin: auto;
+        width: 332px;
+        height: 332px;
+        margin-top: 100px;
+        position: relative;
+    }
+    
+    #birinci {
+    
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+    
+    #ikinci {
+    
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+    
+    #ucuncu {
+    
+    
+        border-bottom: 2px solid black;
+    }
+    
+    #dorduncu {
+    
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+    
+    #besinci {
+    
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+    
+    #altinci {
+        border-bottom: 2px solid black;
+    }
+    
+    #yedinci {
+        border-right: 2px solid black;
+    }
+    
+    #sekizinci {
+        border-right: 2px solid black;
+    }
+    
+    .box {
+        width: 110px;
+        height: 110px;
+        display: inline-block;
+        float: left;
+    }
+    
+    .y {
+        font-size: 85px;
+        position: relative;
+        left: 25px;
+        top: 5px;
+    }
+    
+    .y:hover {
+    
+        cursor: default;
+    }
+    
+    #result {
+    
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        position: absolute;
+        margin: 60px 0 0 15px;
+        font-weight: bold;
+        display: none;
+        background: darkorange;
+        font-size: 35px;
+        padding-top: 30px;
+        border-radius: 15px;
+    }
+    button {
+        padding: 5px 10px;
+        color:darkorange;
+        background: #000;
+        border-radius: 5px;
+        font-size: 20px;
+        display: block;
+        margin: auto;
+        position: relative;
+        bottom: 15px;
+    }
+    #credits{
+        font-size:x-large;
+        text-align: center;
+        padding-top: 180px;
+    }
+    </style>
+
+</head>
+
+<body id="body">
+    <h1 id="header">XOX OYUNU</h1>
+    
+    <div id="container">
+        <div id="birinci" class="box"><span class="y"></span></div>
+        <div id="ikinci" class="box"><span class="y"></span></div>
+        <div id="ucuncu" class="box"><span class="y"></span></div>
+        <div id="dorduncu" class="box"><span class="y"></span></div>
+        <div id="besinci" class="box"><span class="y"></span></div>
+        <div id="altinci" class="box"><span class="y"></span></div>
+        <div id="yedinci" class="box"><span class="y"></span></div>
+        <div id="sekizinci" class="box"><span class="y"></span></div>
+        <div id="dokuzuncu" class="box"><span class="y"></span></div>
+        <div id="result"></div>
+        <button id="restart" onclick="window.location.reload(false)">Tekrar Oyna</button>
+      
+    </div>
+    <div id="credits">
+        <p>Kemal Alper AKDENİZ</p>
+      </div>
+    <script>
+        const SiraBelirtici = document.getElementById("player");
+const TumBloklar = document.getElementById("container");
+const SonucEkrani = document.getElementById("result");
+const Button = document.getElementById("restart");
+Button.style.display = "none";
+let sayac = 1;
+for (let KontrolDegiskeni = 0; KontrolDegiskeni < 9; KontrolDegiskeni++) {
+    TumBloklar.children[KontrolDegiskeni].addEventListener("click", calistir);
+    
+}
+let SiraBelirtecDegiskeni = "X";
+let TiklananKutular = [];
+
+function calistir() {
+    if (this.classList[1] != "tiklandi") {
+        this.classList.add("tiklandi");
+        this.children[0].innerText = SiraBelirtecDegiskeni;
+        kontrol_beraberlik()
+        kontrol_satirlar()
+        kontrol_sutunlar()
+        kontrol_capraz()
+        if (SiraBelirtecDegiskeni == "X") SiraBelirtecDegiskeni = "O";
+        else SiraBelirtecDegiskeni = "X";
+        SiraBelirtecDegiskeni.innerText = SiraBelirtecDegiskeni + " 'in Sirasi";
+    }
+    else {
+        alert("lütfen baska bir secim yapiniz !");
+    }
+}
+
+function kontrol_satirlar() {
+    if (TumBloklar.children[0].textContent == TumBloklar.children[1].textContent &&
+        TumBloklar.children[0].textContent == TumBloklar.children[2].textContent &&
+        TumBloklar.children[0].textContent !== "")
+        sonuc()
+    if (TumBloklar.children[3].textContent == TumBloklar.children[4].textContent &&
+        TumBloklar.children[3].textContent == TumBloklar.children[5].textContent &&
+        TumBloklar.children[3].textContent !== "")
+        sonuc()
+    if (TumBloklar.children[6].textContent == TumBloklar.children[7].textContent &&
+        TumBloklar.children[6].textContent == TumBloklar.children[8].textContent &&
+        TumBloklar.children[6].textContent !== "")
+        sonuc()
+}
+
+function kontrol_sutunlar() {
+    if (TumBloklar.children[0].textContent == TumBloklar.children[3].textContent &&
+        TumBloklar.children[0].textContent == TumBloklar.children[6].textContent &&
+        TumBloklar.children[0].textContent !== "")
+        sonuc()
+    if (TumBloklar.children[1].textContent == TumBloklar.children[4].textContent &&
+        TumBloklar.children[1].textContent == TumBloklar.children[7].textContent &&
+        TumBloklar.children[1].textContent !== "")
+        sonuc()
+    if (TumBloklar.children[2].textContent == TumBloklar.children[5].textContent &&
+        TumBloklar.children[2].textContent == TumBloklar.children[8].textContent &&
+        TumBloklar.children[2].textContent !== "")
+        sonuc()
+}
+function kontrol_capraz() {
+    if (TumBloklar.children[0].textContent == TumBloklar.children[4].textContent &&
+        TumBloklar.children[0].textContent == TumBloklar.children[8].textContent &&
+        TumBloklar.children[0].textContent !== "")
+        sonuc()
+    if (TumBloklar.children[2].textContent == TumBloklar.children[4].textContent &&
+        TumBloklar.children[2].textContent == TumBloklar.children[6].textContent &&
+        TumBloklar.children[2].textContent !== "")
+        sonuc()
+
+}
+
+function sonuc() {
+    document.querySelector("#body").style.background = "#363636";
+    Button.style.display = "block";
+    SonucEkrani.style.display = "block";
+    SonucEkrani.innerText = SiraBelirtecDegiskeni + " Kazandı !";
+}
+function kontrol_beraberlik() {
+    for (KontrolDegiskeni = 0; KontrolDegiskeni < 9; KontrolDegiskeni++) {
+        if (TumBloklar.children[KontrolDegiskeni].classList[1] == "tiklandi"){
+            sayac+=1; 
+            break;
+        }
+
+    }
+    if (sayac==10) {
+        document.querySelector("#body").style.background="#363636";
+        Button.style.display = "block";
+        SonucEkrani.style.display = "block";
+        SonucEkrani.innerText = "Berabere !";
+    }
+}
+    </script>
+</body>
+
+</html>

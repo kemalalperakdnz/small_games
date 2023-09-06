@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title>Oyunlar</title>
+<link rel="icon" type="image/png" href="images/oyunlar.png" />
+<style>
+    body {
+	background-color:black;
+    padding-left: 85px;
+    padding-bottom: 0px;
+	height:100%;
+    border-style: outset;
+    border-width: 10px;
+    border-color: gold;
+    }
+
+    .game {
+    display: inline-block;
+    width: 300px;
+    margin: 10px;
+    text-align: center;
+    }
+
+    .game img {
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+    border: 5px inset #FC3C3C;
+    }
+    h1{
+    color: white; 
+    text-align: center;
+    word-spacing: 10px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 5px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+
+    }
+    .game h2 {
+    margin-top: 10px;
+    color: white;
+    }
+
+    .game p {
+    margin-bottom: 10px;
+    color:white
+    }
+
+    .game button {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    outline: none;
+
+    color: #fff;
+
+    background-color:#fdb912;
+
+    border: none;
+
+    border-radius: 15px;
+
+    box-shadow: 0 9px #999;
+}
+
+.btn:hover {background-color: #a90432}
+
+.btn:active {
+
+background-color: #3e8e41;
+
+box-shadow: 0 5px #666;
+
+transform: translateY(4px);
+}
+#credits{
+    color:#a90432;
+    text-align: center;
+    font-size: x-large;
+    padding-top: 100px;
+    
+}
+.menu {
+        position: fixed;
+        background-color: rgba(0,0,0,0.4);
+        height: 80px;
+        width: calc(97% - 80px);
+        z-index: 1;
+      }
+      
+      .menu a {
+        line-height: 80px;
+        color: #fff;
+        font-size: 18px;
+      }
+      
+      .sol-menu a {
+        font-family: 'Righteous', cursive;
+        font-size: 2em;
+        padding-left:0;
+      }
+      
+      .sag-menu a {
+        margin: 0 20px;
+        padding:0px;
+      }
+      .left {
+        float: left;
+      }
+      
+      .right {
+        float: right;
+      }
+      
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      a:hover{
+        color: #a90432;
+      }
+      .copyright {
+    font-size: 17px;
+    color: #c5def4;
+    text-align: center;
+    margin: 5px 0;
+      }
+      
+</style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="wrapper">
+  
+          <div class="menu">
+  
+            <div class="sol-menu left">
+              <a>KEMAL ALPER AKDENİZ</a>
+  
+            </div> 
+  
+            <div class="sag-menu right">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="profil.html">İletişim</a>
+              <a href="hakkımda.html">Hakkımda</a>
+  
+            </div> 
+  
+          </div>
+<div class="oyunsecimi">
+    <h1>Oyun Seçimi</h1>
+</div>    
+          
+    <div id="game-list">
+        <div class="game">
+            <img src="images/Ekran Görüntüsü (37).png" alt="Oyun 1">
+            <h2>Yılan Oyunu</h2>
+            <p>Oyuncunun kontrol ettiği bir yılanı yönlendirerek yemleri yemesi ve mümkün olduğunca uzun süre hayatta kalmaya çalışması gerekiyor.</p>
+            <a href="yılanOyunu.html">
+                <button class="btn">Oyunu Oyna</button>
+            </a>
+        </div>
+
+        <div class="game">
+            <img src="images/Ekran Görüntüsü (35).png" alt="Oyun 2">
+            <h2>Tuğla Kırma Oyunu</h2>
+            <p>Oyuncunun kontrol ettiği zemini yönlendirerek tuğlaları kırması ve mümkün olduğunca hızlı bir şekilde tuğlaları kırması gerekiyor.</p>
+            <a href="tuglaKırmaOyunu.html">
+                <button class="btn">Oyunu Oyna</button>
+            </a>
+        </div>
+        
+        <div class="game">
+            <img src="images/Ekran Görüntüsü (34).png" alt="Oyun 3">
+            <h2>Taş Kağıt Makas Oyunu</h2>
+            <p>Oyuncu taş kağıt veya makası seçer ve bilgisayarın seçtiği işarete göre Taş Makas'ı kırar, Makas Kağıt'ı keser, Kağıt Taş'ı sarar.</p>
+            <br>
+            <a href="taşKağıtMakas.html">
+                <button class="btn">Oyunu Oyna</button>
+            </a>
+        </div>
+        
+        <div class="game">
+            <img src="images/Ekran Görüntüsü (33).png" alt="Oyun 4">
+            <h2>Sayı Tahmi Oyunu</h2>
+            <p>Oyuncu bilgisayarın 1 ile 100 arasında tuttuğu sayıyı tahmin etmeye çalışmaktadır. Verilen 10 hak içinde bu sayıyı doğru bilimesi gerekmektedir.</p>
+            <a href="sayıTahmin.html">
+                <button class="btn">Oyunu Oyna</button>
+            </a>
+        </div>
+        
+        <div class="game">
+            <img src="images/Ekran Görüntüsü (32).png" alt="Oyun 5">
+            <h2>Kediyi Sev Oyunu</h2>
+            <p>Oyuncu mouse ile kediyi sevebilir oynatabilir. Verilen yumak ile istediğini yapabilmektedir.</p>
+            <br>
+            <br>
+            <a href="kediyiSev.html">
+                <button class="btn">Oyunu Oyna</button>
+            </a>
+        </div>
+
+        <div class="game">
+            <img src="images/Ekran Görüntüsü (31).png" alt="Oyun 6">
+            <h2>Böcek Öldürme Oyunu</h2>
+            <p>Oyuncu seçtiği böceği 1 dakika içerisinde mouse ile tıklayarak tek tek öldürmektedir.</p>
+            <br>
+            <br>
+            <a href="böcekÖldürmeOyunu.html">
+                <button class="btn">Oyunu Oyna</button>
+            </a>
+        </div>
+
+        <div class="game">
+            <img src="images/Ekran Görüntüsü (30).png" alt="Oyun 7">
+            <h2>Bariyerlere Değme Oyunu</h2>
+            <p>Oyuncu "zıpla" butonuna basarak kırmızı kutucuğu bariyerlerin arasından geçirmektedir.</p>
+            <br>
+            <br>
+            <a href="BariyerlereDeğme.html">
+                <button class="btn">Oyunu Oyna</button>
+            </a>
+        </div>
+
+        <div class="game">
+            <img src="images/Ekran Görüntüsü (36).png" alt="Oyun 8">
+            <h2>XOX Oyunu</h2>
+            <p>Oyuncular kare kutucuklara "X" veya "O" yerleştirmektedir. Yatay, dikey veya çapraz olacak şekilde aynı işareti getiren kazanmaktadır.</p>
+            <a href="xoxOyunu.html">
+                <button class="btn">Oyunu Oyna</button>
+            </a>
+        </div>
+        <div id="credits">
+            <p class="copyright">Tüm Hakları Saklıdır © Kemal Alper AKDENİZ</p>
+          </div>
+</body>
+</html>
